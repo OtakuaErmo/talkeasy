@@ -21,9 +21,9 @@
                                     <div class="card">
                                         <div class="card-body text-center">
                                             <p><img class=" img-fluid"  src="{{ url('imagens/palavras/'.$item->contexto_str.'/'.$item->imagem) }}" style="width: 120px; height: 120px" alt="{{$item->imagem}}"></p>
-                                        <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#{{$item->palavra}}"  >{{$item->palavra}}</button>
+                                        <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#{{$video_id = str_replace(' ', '', $item->palavra)}}"  >{{$item->palavra}}</button>
                                             <!--Modal: modalYT-->
-                                            <div class="modal fade" data-backdrop="static" id="{{$item->palavra}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                            <div class="modal fade" data-backdrop="static" id="{{$video_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                                             aria-hidden="true">
                                                 <div class="modal-dialog modal-lg" role="document">
                                                     <!--Content-->
@@ -38,7 +38,6 @@
                                                                     <param name="allowscriptaccess" value="always" />
                                                                 </object>
                                                             </div>
-
                                                         </div>
                                                         <!--Footer-->
                                                         <div class="modal-footer justify-content-center flex-column flex-md-row">
