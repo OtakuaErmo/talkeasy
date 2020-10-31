@@ -21,7 +21,7 @@ class AuthController extends Controller
         if (Auth::check() === true) {
             return redirect()->back()->withInput()->withErrors(['Você já está em uma sessão!']);
         }
-        return view('usuario.formLogin');
+        return view('usuario.pLogin');
     }
 
     public function login(Request $request)

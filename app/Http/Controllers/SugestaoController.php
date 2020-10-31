@@ -10,7 +10,7 @@ class SugestaoController extends Controller
     public function index()
     {
         $ObjSugestao = SugestaoModel::orderBy('id')->get();
-        return view('sugestoes')->with('sugestao', $ObjSugestao);
+        return view('pSugestoes')->with('sugestao', $ObjSugestao);
     }
 
     public function store(Request $request)
