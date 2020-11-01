@@ -55,7 +55,7 @@
         </ul>
         <form class="form-inline">
             @if (!Auth::guest())
-            <a class="btn btn-info" type="button" href="{{ route('sugestao') }}">Fazer uma sugestão</a>
+            <a class="btn btn-outline-info" type="button" href="{{ route('sugestao') }}">Fazer uma sugestão</a>
             @endif
             @if (Auth::guest())
                 <a class="btn btn-outline-info" type="button" href="{{route('usuario.login')}}" >Login</a>

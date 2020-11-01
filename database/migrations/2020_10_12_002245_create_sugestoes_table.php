@@ -15,8 +15,9 @@ class CreateSugestoesTable extends Migration
     {
         Schema::create('sugestoes', function (Blueprint $table) {
             $table->id();
-            $table->string('responsavel', 50);
+            $table->unsignedBigInteger("usuario_id");
             $table->string('sugestao', 255);
+            $table->foreign("usuario_id")->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@
                                         <form method="POST" action="{{ route('sugestao.do') }}">
                                             @csrf
                                             <div class="card-body">
-                                                <p class="text-center">Deixe aqui uma sugestão de melhoria, palavra ou gesto a ser acrescentado</p>
+                                                <p class="text-center">Deixe aqui uma sugestão de melhoria, palavra ou gesto a ser acrescentado:</p>
 
                                                 @if ($errors->all())
                                                     @foreach ($errors->all() as $error)
@@ -37,14 +37,11 @@
                                                     @endforeach
                                                 @endif
 
-                                                <div class="form-group">
-                                                <label for="InputName">Nome</label>
-                                                <input type="name" name="responsavel" class="form-control" value="{{Auth::user()->name}}" id="InputName" aria-describedby="nameHelp" placeholder="Escreva seu nome">
+                                                <input type="hidden" id="usuario_id" name="usuario_id" value="{{Auth::id()}}">
 
-                                                </div>
                                                 <div class="form-group">
-                                                <label for="palavra">Sugestão</label>
-                                                <input type="text" name="sugestao" class="form-control" id="sugestao">
+
+                                                <input type="text" name="sugestao" class="form-control" id="sugestao" maxlength="255">
                                                 </div>
                                                 <button class="btn btn-info" type="submit">Enviar sugestão</button>
 
@@ -59,7 +56,6 @@
                     </div>
                     <!-- /ADICIONAR UMA SUGESTAO -->
                     @endif
-
                     <!--LISTAGEM DAS SUGESTOES-->
                     <div class="table-responsive">
                         <table class="table">
@@ -70,12 +66,12 @@
                                     <th scope="col">Sugestão</th>
                                 </tr>
                             </thead>
-                            @foreach ($sugestao as $item)
+                            @foreach ($sugestao as $sug)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">{{$item->id}}</th>
-                                        <td scope="row">{{$item->responsavel}}</td>
-                                        <td scope="row">{{$item->sugestao}}</td>
+                                        <th scope="row">{{$sug->id}}</th>
+                                        <td scope="row">{{$sug->users->name}}</td>
+                                        <td scope="row">{{$sug->sugestao}}</td>
                                     </tr>
                                 </tbody>
                             @endforeach
