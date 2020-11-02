@@ -7,7 +7,7 @@ git clone https://github.com/OtakuaErmo/talkeasy.git
 - Entre (cd) na pasta clonada e digite os seguintes comandos:
 ````
 composer install
-php -r "copy('.env.example', '.env')
+php -r "copy('.env.example', '.env');"
 php artisan key:generate
 ````
 - Navegue entre os diretórios e configure o arquivo .env com as informações do seu banco;
