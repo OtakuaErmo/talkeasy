@@ -2,19 +2,15 @@
 
 - Clone este projeto para sua pasta www/htdocs:
 ```
-git clone [link]
+git clone https://github.com/OtakuaErmo/talkeasy.git
 ```
-- entre (cd) na pasta clonada:
-````
-cd talkeasy ->windows
-````
-- e digite os seguintes comandos:
+- Entre (cd) na pasta clonada e digite os seguintes comandos:
 ````
 composer install
 php -r "copy('.env.example', '.env')
 php artisan key:generate
 ````
-- navegue entre os diretórios e configure o arquivo .env com as informações do seu banco;
+- Navegue entre os diretórios e configure o arquivo .env com as informações do seu banco;
 - após configurado, utilize o comando:
 ````
 php artisan migrate
