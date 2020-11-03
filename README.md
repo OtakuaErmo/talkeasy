@@ -11,9 +11,10 @@ php -r "copy('.env.example', '.env');"
 php artisan key:generate
 ````
 - Navegue entre os diretórios e configure o arquivo .env com as informações do seu banco;
-- após configurado, utilize o comando:
+- Após configurado, utilize os comandos:
 ````
 php artisan migrate
+php artisan db:seed
 ````
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
