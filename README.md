@@ -1,3 +1,20 @@
+## Como clonar este projeto em sua máquina
+
+- Clone este projeto para sua pasta www/htdocs:
+```
+git clone https://github.com/OtakuaErmo/talkeasy.git
+```
+- Entre (cd) na pasta clonada e digite os seguintes comandos:
+````
+composer install
+php -r "copy('.env.example', '.env');"
+php artisan key:generate
+````
+- Navegue entre os diretórios e configure o arquivo .env com as informações do seu banco;
+- após configurado, utilize o comando:
+````
+php artisan migrate
+````
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
