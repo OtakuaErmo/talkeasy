@@ -11,7 +11,11 @@ class SugestaoController extends Controller
 {
     public function index()
     {
-        $ObjSugestao = SugestaoModel::orderBy('id')->get();
+        //$ObjSugestao = DB::table('sugestoes')->paginate(10);
+        //dd($ObjSugestao);
+        //$ObjSugestao = SugestaoModel::orderBy('id')->get();
+        $ObjSugestao = SugestaoModel::orderBy('id')->paginate(10);
+        //dd($ObjSugestao);
         return view('pSugestoes')->with('sugestao', $ObjSugestao);
     }
 

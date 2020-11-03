@@ -78,6 +78,7 @@
                         </table>
                     </div>
                     <!--/LISTAGEM DAS SUGESTOES-->
+                    {{$sugestao->links()}}
                 </div>
             </div>
         </div>

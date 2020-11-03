@@ -17,7 +17,6 @@ class CreatePalavrasTable extends Migration
             $table->id();
             $table->unsignedBigInteger("id_contexto");
             $table->string("palavra", 50)->nullable();
-            $table->string("contexto_str", 50);
             $table->string("imagem");
             $table->string("video_src", 50)->nullable();
             $table->foreign("id_contexto")->references('id')->on('contextos')->onDelete('cascade');
