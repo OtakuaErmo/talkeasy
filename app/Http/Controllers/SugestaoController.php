@@ -14,7 +14,7 @@ class SugestaoController extends Controller
         //$ObjSugestao = DB::table('sugestoes')->paginate(10);
         //dd($ObjSugestao);
         //$ObjSugestao = SugestaoModel::orderBy('id')->get();
-        $ObjSugestao = SugestaoModel::orderBy('id')->paginate(10);
+        $ObjSugestao = SugestaoModel::orderBy('id', 'DESC')->paginate(10);
         //dd($ObjSugestao);
         return view('pSugestoes')->with('sugestao', $ObjSugestao);
     }
