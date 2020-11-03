@@ -372,6 +372,67 @@ class PalavraTableSeeder extends Seeder
 
         //-----------------------------------------------------------------------------frutas 5
 
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Amora',
+            'imagem' => 'amora.png',
+            'video_src' => 'p33TNsv7670',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Abacate',
+            'imagem' => 'abacate.png',
+            'video_src' => 'PZUcAXVJ0uo',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Abacaxi',
+            'imagem' => 'abacaxi.png',
+            'video_src' => 'Rg2fglh29UE',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Goiaba',
+            'imagem' => 'goiaba.png',
+            'video_src' => 'zRj0Ok8ahKU',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Kiwi',
+            'imagem' => 'kiwi.png',
+            'video_src' => '2BOroYihBAM',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Laranja',
+            'imagem' => 'laranja.png',
+            'video_src' => 'bZzKCoNEUS0',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Maçã',
+            'imagem' => 'maca.png',
+            'video_src' => 'Ao23iJSZJo0',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Manga',
+            'imagem' => 'manga.png',
+            'video_src' => '6nL9RsdKRKk',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Maracujá',
+            'imagem' => 'maracuja.png',
+            'video_src' => 'eqnFzLGUlRY',
+        ]);
+        PalavraModel::create([
+            'id_contexto' => '5',
+            'palavra' => 'Melancia',
+            'imagem' => 'melancia.png',
+            'video_src' => 'qOxk8r5VouY',
+        ]);
+
         //--------------------------------------------------------------------------------cores 6
         PalavraModel::create([
             'id_contexto' => '6',

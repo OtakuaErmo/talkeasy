@@ -20,7 +20,7 @@
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <p><img class=" img-fluid"  src="{{ url('imagens/palavras/'.$item->contextos->contexto.'/'.$item->imagem) }}" style="width: 120px; height: 120px" alt="{{$item->imagem}}"></p>
+                                            <p><img class=" img-fluid"  src="{{ url('imagens/palavras/'.$item->contextos->contexto.'/'.$item->imagem) }}" style="width: 120px; height: 120px" ></p>
 
                                             <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#{{$video_id = str_replace(' ', '', $item->palavra)}}"  >{{$item->palavra}}</button>
                                             @if (!$item->palavra == null)
