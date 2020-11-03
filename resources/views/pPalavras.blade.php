@@ -9,7 +9,7 @@
             </h1>
         </div>
     </section>
-    <section id="team" class="pb-5 ">
+    <section id="palavras" class="pb-5 ">
         <div class="container">
             <div class="row">
                 <!-- palavras -->

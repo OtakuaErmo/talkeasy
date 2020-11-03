@@ -11,17 +11,12 @@ class SugestaoController extends Controller
 {
     public function index()
     {
-        //$ObjSugestao = DB::table('sugestoes')->paginate(10);
-        //dd($ObjSugestao);
-        //$ObjSugestao = SugestaoModel::orderBy('id')->get();
         $ObjSugestao = SugestaoModel::orderBy('id', 'DESC')->paginate(10);
-        //dd($ObjSugestao);
         return view('pSugestoes')->with('sugestao', $ObjSugestao);
     }
 
     public function store(Request $request)
     {
-
         $request->validate([
             'usuario_id' => 'required',
             'sugestao' => 'required|max:255',
