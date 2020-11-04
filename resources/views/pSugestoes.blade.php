@@ -63,6 +63,9 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Responsável</th>
                                     <th scope="col">Sugestão</th>
+                                    @if (!Auth::guest())
+                                    <th scope="col">Avaliar</th>
+                                    @endif
                                 </tr>
                             </thead>
                             @foreach ($sugestao as $sug)
@@ -71,6 +74,18 @@
                                         <th scope="row">{{$sug->id}}</th>
                                         <td scope="row">{{$sug->users->name}}</td>
                                         <td scope="row">{{$sug->sugestao}}</td>
+                                        @if (!Auth::guest())
+                                        <th scope="row">
+                                            <form action="{{action('LikeController@store')}} " method="POST">
+                                                @csrf
+                                                <input type="hidden" name="usuario_id" id="usuario_id" value="{{Auth::id()}}">
+                                                <input type="hidden" name="sugestao_id" id="sugestao_id" value="{{$sug->id}}">
+                                                <button type="submit" class="btn btn-success">
+                                                    <i class=" fa fa-thumbs-up"></i>
+                                                </button>
+                                            </form>
+                                        </th>
+                                        @endif
                                     </tr>
                                 </tbody>
                             @endforeach

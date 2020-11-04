@@ -28,6 +28,8 @@ Route::get('/usuario/logout', 'AuthController@logout')->name('usuario.logout');
 Route::get('/usuario/cadastrar', 'Auth\RegisterController@showRegistrationForm')->name('usuario.register');
 Route::post('/usuario/cadastrar', 'Auth\RegisterController@register')->name('usuario.register.do');
 
+Route::get('/likes', 'LikeController@index')->name('like');
+Route::post('/fazer/like/do', 'LikeController@store')->name('like.do');
 Auth::routes([
     'login' => false,
     'reset' => false,

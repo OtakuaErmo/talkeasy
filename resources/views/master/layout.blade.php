@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TalkEasy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="{{asset('site/style.css')}}">
     <link rel="sortcut icon" href="{{ url('imagens/talkeasy/aba-logo.png') }}" type="image/x-icon" />;
 
@@ -43,6 +44,10 @@
               <a class="dropdown-item" href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4247586A6" target="_blank">Alex Ricardo Weber</a>
               <a class="dropdown-item" href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K8016989P6" target="_blank">Rodrigo Soares da Silva</a>
               <a class="dropdown-item" href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4306740E5" target="_blank">Sabrine Weber</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"  target="_blank">Agradecimentos</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://www.escavador.com/sobre/6767450/jackson-meires-dantas-canuto" target="_blank">Jackson Meires Dantas Canuto</a>
             </div>
           </li>
           <li class="nav-item dropdown">
