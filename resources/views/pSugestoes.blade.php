@@ -10,13 +10,13 @@
     </section>
 
     <section id="sugestao" class="pb-5">
-        <div class="container ">
+        <div class="container">
             <div class="row justify-content-center ">
                 <!-- ADICIONAR UMA SUGESTAO -->
                 <div class=" col-sm-10">
                     @if (!Auth::guest())
                     <div class="image-flip card border-info mb-3 ontouchstart="this.classList.toggle('hover'); >
-                        <div class="mainflip ">
+                        <div class="mainflip">
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
@@ -51,7 +51,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <!-- /ADICIONAR UMA SUGESTAO -->
