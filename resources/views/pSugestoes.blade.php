@@ -36,13 +36,21 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
-
+                                                <input type="hidden" id="id" name="id">
+                                                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Contexto</label>
+                                                        <select name="tipo" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                                            <option>O que é sua sugestão?</option>
+                                                                <option value="palavra">Palavra</option>
+                                                                <option value="contexto">Contexto</option>
+                                                                <option value="melhoria">Melhoria</option>
+                                                        </select>
                                                 <input type="hidden" id="usuario_id" name="usuario_id" value="{{Auth::id()}}">
 
                                                 <div class="form-group">
-
                                                 <input type="text" name="sugestao" class="form-control" id="sugestao" maxlength="255">
                                                 </div>
+                                                <input type="hidden" id="cadastrado" name="cadastrado" value="nao">
+
                                                 <button class="btn btn-info" type="submit">Enviar sugestão</button>
 
                                             </div>
@@ -74,6 +82,9 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Responsável</th>
                                     <th scope="col">Sugestão</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Cadastrada</th>
+
                                     @if (!Auth::guest())
                                     <th scope="col">Avaliar</th>
                                     @endif
@@ -88,6 +99,8 @@
                                         <th scope="row">{{$item->id}}</th>
                                         <td scope="row">{{$item->users->name}}</td>
                                         <td scope="row">{{$item->sugestao}}</td>
+                                        <td scope="row">{{$item->tipo}}</td>
+                                        <td scope="row">{{$item->cadastrado}}</td>
                                         @if (!Auth::guest())
                                         <th scope="row">
                                             <form action="{{action('LikeController@store')}} " method="POST">

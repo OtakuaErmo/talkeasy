@@ -13,7 +13,7 @@
         <div class="container">
             @if (Auth::id() === 1)
                 <a href="{{ route('cpanel.index') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA O PAINEL DE ADMINISTRAÇÃO</i></a><br>
-                <a href="{{ route('cpanel.palavra.list') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA AS SUGESTÕES</i></a><br>
+                <a href="{{ route('cpanel.palavra.list') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA AS LISTA DE PALAVRAS</i></a><br>
             @endif
                     <br><br>
                     <form action="{{ action('PalavraController@search')}}" method="POST">

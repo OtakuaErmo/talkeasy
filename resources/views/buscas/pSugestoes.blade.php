@@ -5,7 +5,7 @@
     <section class="jumbotron text-center pb-5 pt-5 card text-white bg-info mb-5 mt-4">
         <div class="container pt-4">
             <h1 class="jumbotron-heading">Sugestões</h1>
-            <p class="jumbotron-heading">Faça seu <a href="{{ route('usuario.login') }}" class="text-danger">CADASTRO</a> para deixar uma sugestão!</p>
+            <p class="jumbotron-heading">Busque por uma sugestão!</p>
         </div>
     </section>
 
@@ -19,6 +19,13 @@
             <a href="{{ route('sugestao') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA SUGESTÕES</i></a>
             @endif
                     <br><br>
+                    @if ($errors->all())
+                        @foreach ($errors->all() as $error)
+                            <div class=" border border-info alert alert-warning text-info" role="alert">
+                                {{$error}}
+                            </div>
+                        @endforeach
+                    @endif
                     <form action="{{ action('SugestaoController@search')}}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
@@ -53,7 +60,7 @@
                                         <td scope="row">{{$item->sugestao}}</td>
                                         @if (!Auth::guest())
                                         <th scope="row">
-                                            <form action="{{action('LikeController@store')}} " method="POST">
+                                            <form action="{{action('LikeController@store')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="usuario_id" id="usuario_id" value="{{Auth::id()}}">
                                                 <input type="hidden" name="sugestao_id" id="sugestao_id" value="{{$item->id}}">

@@ -18,6 +18,8 @@ class CreateSugestoesTable extends Migration
             $table->unsignedBigInteger("usuario_id");
             $table->string('sugestao', 255);
             $table->foreign("usuario_id")->references('id')->on('users')->onDelete('cascade');
+            $table->string('tipo', 8);
+            $table->string('cadastrado', 3);
             $table->timestamps();
         });
     }

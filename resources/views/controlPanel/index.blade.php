@@ -21,7 +21,7 @@
                     LOG:
                     @if ($errors->all())
                     @foreach ($errors->all() as $error)
-                        <div class=" border border-info alert alert-warning text-info" role="alert">
+                        <div class="alert alert-danger" role="alert">
                             {{$error}}
                         </div>
                     @endforeach

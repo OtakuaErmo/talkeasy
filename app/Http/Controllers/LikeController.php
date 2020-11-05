@@ -54,9 +54,11 @@ class LikeController extends Controller
             $ObjLikes->usuario_id = $request->usuario_id;
             $ObjLikes->sugestao_id = $request->sugestao_id;
             $ObjLikes->save();
-            return redirect()->back()->withInput()->withErrors(['Você gostou de uma Palavra!']);
+            return redirect()->route('sugestao')->withInput()->withErrors(['Você gostou de uma Palavra!']);
+            //return redirect()->back()->withInput()->withErrors(['Você gostou de uma Palavra!']);
         } else{
-            return redirect()->back()->withInput()->withErrors(['Você já gostou dessa Palavra!']);
+            return redirect()->route('sugestao')->withInput()->withErrors(['Você já gostou dessa Palavra!']);
+            //return redirect()->back()->withInput()->withErrors(['Você já gostou dessa Palavra!']);
         }
     }
 

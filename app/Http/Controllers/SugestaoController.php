@@ -21,12 +21,16 @@ class SugestaoController extends Controller
         $request->validate([
             'usuario_id' => 'required',
             'sugestao' => 'required|max:255',
+            'tipo' => 'required|max:8',
+            'cadastrado' => 'required',
         ]);
         $ObjSugestao = new SugestaoModel();
         $ObjSugestao->usuario_id = $request->usuario_id;
-        $ObjSugestao->sugestao = $request->sugestao;
+        $ObjSugestao->sugestao = ucwords($request->sugestao);
+        $ObjSugestao->tipo = mb_strtoupper($request->tipo);
+        $ObjSugestao->cadastrado = mb_strtoupper($request->cadastrado);
         $ObjSugestao->save();
-        return redirect()->back()->withInput()->withErrors(['Sugestão inserida com sucesso!']);
+        return redirect()->back()->withInput()->withErrors(['Sugestão :'.mb_strtoupper($request->sugestao,"utf-8").': inserida com sucesso!']);
     }
 
     public function remove($id)
@@ -36,7 +40,7 @@ class SugestaoController extends Controller
             $data = $objSugestao->sugestao;
             $objSugestao->delete();
 
-            return redirect()->back()->withInput()->withErrors(['Sugestão '.$data.' removida com sucesso!']);
+            return redirect()->route('cpanel.index')->withInput()->withErrors(['Sugestão '.mb_strtoupper($data, "utf-8").' removida com sucesso!']);
             //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
         }
 

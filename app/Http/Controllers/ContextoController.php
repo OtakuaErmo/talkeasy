@@ -13,6 +13,4 @@ class ContextoController extends Controller
         $ObjContextos = ContextoModel::orderBy('id')->get();
         return view('pInicio')->with('contexto', $ObjContextos);
     }
-    
-
 }

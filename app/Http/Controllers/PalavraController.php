@@ -33,11 +33,11 @@ class PalavraController extends Controller
             ]);
             $ObjPalavra = new PalavraModel();
             $ObjPalavra->id_contexto = $request->id_contexto;
-            $ObjPalavra->palavra = $request->palavra;
+            $ObjPalavra->palavra = ucwords($request->palavra);;
             $ObjPalavra->imagem = $request->imagem;
             $ObjPalavra->video_src = $request->vide_src;
             $ObjPalavra->save();
-            return redirect()->back()->withInput()->withErrors(['Palavra inserida com sucesso!']);
+            return redirect()->back()->withInput()->withErrors(['Palavra '.mb_strtoupper($request->palavra, "utf-8").' inserida com sucesso!']);
         }
 
     }
@@ -49,7 +49,7 @@ class PalavraController extends Controller
             $data = $ObjPalavra->palavra;
             $ObjPalavra->delete();
 
-            return redirect()->back()->withInput()->withErrors(['Palavra '.$data.' removida com sucesso!']);
+            return redirect()->route('cpanel.index')->withInput()->withErrors(['Palavra '.mb_strtoupper($data,"utf-8").' removida com sucesso!']);
             //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
         }
 

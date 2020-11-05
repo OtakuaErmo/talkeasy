@@ -21,62 +21,92 @@ class SugestaoTableSeeder extends Seeder
         SugestaoModel::create([
             'usuario_id' => '1',
             'sugestao' => 'Pêssego',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '1',
             'sugestao' => 'Pato',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '3',
             'sugestao' => 'Computador',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '5',
             'sugestao' => 'Banana',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '7',
             'sugestao' => 'Teclado',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '2',
             'sugestao' => 'Mesa',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '3',
             'sugestao' => 'Xícara',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '1',
             'sugestao' => 'Camiseta',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '6',
             'sugestao' => 'Tomate',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '3',
             'sugestao' => 'Chocolate',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '7',
             'sugestao' => 'Lápis',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '4',
             'sugestao' => 'Microfone',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '5',
             'sugestao' => 'Pepino',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '4',
             'sugestao' => 'Tênis',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
             'usuario_id' => '7',
             'sugestao' => 'Bolacha',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
         ]);
 
     }
