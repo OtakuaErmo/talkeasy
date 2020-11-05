@@ -41,4 +41,19 @@ class SugestaoController extends Controller
         }
 
     }
+
+    public function search(Request $request)
+    {
+        $query = DB::table('sugestoes');
+
+        if (!empty($request->sugestao)) {
+            $query->where('sugestao', 'like',  '%' . $request->sugestao . '%');
+        }
+
+        $objSugestao = $query->orderBy('id')->paginate(10);
+
+        return view('buscas.pSugestoes')->with('sugestao', $objSugestao);
+    }
+
+
 }

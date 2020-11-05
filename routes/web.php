@@ -19,6 +19,7 @@ Route::get('/palavra/{id}', 'PalavraController@index')->name('index.palavras');
 
 Route::get('/fazer/sugestoes', 'SugestaoController@index')->name('sugestao');
 Route::post('/fazer/sugestao/do', 'SugestaoController@store')->name('sugestao.do');
+Route::post('/fazer/sugestao/buscar/do', 'SugestaoController@search')->name('sugestao.search.do');
 
 Route::get('/usuario', 'AuthController@index')->name('usuario');
 Route::get('/usuario/login', 'AuthController@showLoginForm')->name('usuario.login');
@@ -31,7 +32,8 @@ Route::post('/usuario/cadastrar', 'Auth\RegisterController@register')->name('usu
 Route::get('/likes', 'LikeController@index')->name('like');
 Route::post('/cadastrar/like/do', 'LikeController@store')->name('like.do');
 Route::get('/painel_de_controle/index', 'PainelController@index')->name('cpanel.index');
-Route::get('painel_de_controle/admin/remover/sugestao/{id}', 'SugestaoController@remove')->name('sugestao.remove');
+Route::get('/painel_de_controle/admin/remover/sugestao/{id}', 'SugestaoController@remove')->name('sugestao.remove');
+Route::post('/painel_de_controle/admin/search', 'PainelController@search');
 
 Auth::routes([
     'login' => false,
