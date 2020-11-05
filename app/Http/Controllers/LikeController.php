@@ -56,8 +56,14 @@ class LikeController extends Controller
             $ObjLikes->save();
             return redirect()->route('sugestao')->withInput()->withErrors(['Você gostou de uma Palavra!']);
             //return redirect()->back()->withInput()->withErrors(['Você gostou de uma Palavra!']);
-        } else{
-            return redirect()->route('sugestao')->withInput()->withErrors(['Você já gostou dessa Palavra!']);
+        } elseif(DB::table('likes')->where(['usuario_id' => $request->usuario_id, 'sugestao_id' => $request->sugestao_id])->count() == 1) {
+            //$objSugestao = SugestaoModel::findOrFail($id);
+            //$ObjLikes = LikeModel::findOrFail(['usuario_id' => $request->usuario_id, 'sugestao_id' => $request->sugestao_id]);
+            //$data = $ObjLikes->sugestao_id;
+           //dd($data);
+            DB::table('likes')->where(['usuario_id' => $request->usuario_id, 'sugestao_id' => $request->sugestao_id])->delete();
+            //$ObjLikes->delete();
+            return redirect()->route('sugestao')->withInput()->withErrors(['Avaliação removida com sucesso!']);
             //return redirect()->back()->withInput()->withErrors(['Você já gostou dessa Palavra!']);
         }
     }

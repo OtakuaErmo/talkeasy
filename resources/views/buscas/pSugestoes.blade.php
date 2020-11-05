@@ -51,6 +51,8 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Responsável ID</th>
                                     <th scope="col">Sugestão</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Cadastrada</th>
                                     @if (!Auth::guest())
                                     <th scope="col">Avaliar</th>
                                     @endif
@@ -63,8 +65,10 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">{{$item->id}}</th>
-                                        <td>{{$item->usuario_id}}</td>
+                                        <td scope="row">{{$item->usuario_id}}</td>
                                         <td scope="row">{{$item->sugestao}}</td>
+                                        <td scope="row">{{$item->tipo}}</td>
+                                        <td scope="row">{{$item->cadastrado}}</td>
                                         @if (!Auth::guest())
                                         <th scope="row">
                                             <form action="{{action('LikeController@store')}}" method="POST">
