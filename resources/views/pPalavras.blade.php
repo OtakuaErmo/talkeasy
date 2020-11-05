@@ -7,6 +7,9 @@
             <h1 class="jumbotron-heading">
                 {{$palavra[0]->contextos->contexto}}
             </h1>
+            @if (Auth::id() === 1)
+                <a class="text-warning" href="{{route('cpanel.palavra.create')}}"><i class="fas fa-plus-circle">Adicionar Palavra</i></a>
+            @endif
         </div>
     </section>
     <section id="palavras" class="pb-5 ">

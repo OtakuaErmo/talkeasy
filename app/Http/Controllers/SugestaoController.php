@@ -55,5 +55,4 @@ class SugestaoController extends Controller
         return view('buscas.pSugestoes')->with('sugestao', $objSugestao);
     }
 
-
 }

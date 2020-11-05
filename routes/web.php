@@ -31,9 +31,17 @@ Route::post('/usuario/cadastrar', 'Auth\RegisterController@register')->name('usu
 
 Route::get('/likes', 'LikeController@index')->name('like');
 Route::post('/cadastrar/like/do', 'LikeController@store')->name('like.do');
-Route::get('/painel_de_controle/index', 'PainelController@index')->name('cpanel.index');
+Route::get('/painel_de_controle/admin/index', 'PainelController@index')->name('cpanel.index');
 Route::get('/painel_de_controle/admin/remover/sugestao/{id}', 'SugestaoController@remove')->name('sugestao.remove');
-Route::post('/painel_de_controle/admin/search', 'PainelController@search');
+//Route::post('/painel_de_controle/admin/search', 'PainelController@search');
+Route::get('/painel_de_controle/admin/palavra/create', "PalavraController@create")->name('cpanel.palavra.create');
+Route::post('/painel_de_controle/admin/palavra/store/do', "PalavraController@store")->name('cpanel.palavra.create.do');
+Route::get('/painel_de_controle/admin/palavras/listagem', 'PalavraController@showAll')->name('cpanel.palavra.list');
+Route::get('/painel_de_controle/admin/palavra/remove/{id}', 'PalavraController@remove')->name('palavra.remove');
+Route::post('/painel_de_controle/admin/palavra/buscar/do', 'PalavraController@search')->name('palavra.search.do');
+
+
+
 
 Auth::routes([
     'login' => false,

@@ -11,7 +11,13 @@
 
     <section id="sugestao" class="pb-5">
         <div class="container">
-                    <a href="{{ route('sugestao') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA SUGESTÕES</i></a>
+            @if (Auth::id() === 1)
+            <a href="{{ route('cpanel.index') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA O PAINEL DE ADMINISTRAÇÃO</i></a><br>
+            <a href="{{ route('sugestao') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA AS SUGESTÕES</i></a><br>
+            <a href="{{ route('like') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA O GERENCIAMENTO DE SUGESTÕES</i></a>
+            @else
+            <a href="{{ route('sugestao') }}"><i class="fas fa-long-arrow-alt-left"> VOLTAR PARA SUGESTÕES</i></a>
+            @endif
                     <br><br>
                     <form action="{{ action('SugestaoController@search')}}" method="POST">
                         @csrf

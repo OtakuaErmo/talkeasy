@@ -38,9 +38,9 @@
             <div class="col-12">
                 <br>
                 <a type="button" href="{{route('like')}}" class="btn btn-warning btn-block border border-dark">Gerenciar Sugestões</a>
-                <button type="button" class="btn btn-warning btn-block border border-dark">Warning</button>
-                <button type="button" class="btn btn-warning btn-block border border-dark">Warning</button>
-                <button type="button" class="btn btn-warning btn-block border border-dark">Warning</button>
+                <a type="button" href="{{route('cpanel.palavra.create')}}" class="btn btn-warning btn-block border border-dark">Adicionar Palavra</a>
+                <a type="button" href="{{route('cpanel.palavra.list')}}" class="btn btn-warning btn-block border border-dark">Remover Palavra</a>
+                <a type="button" class="btn btn-warning btn-block border border-dark">Warning</a>
                 <br>
             </div>
             </div>

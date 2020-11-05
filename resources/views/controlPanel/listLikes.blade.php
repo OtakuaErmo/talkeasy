@@ -30,6 +30,21 @@
             </div>
             <div class="row justify-content-center ">
                 <div class=" col-sm-10">
+                    <form action="{{ action('SugestaoController@search')}}" method="POST">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Buscar</span>
+                            </div>
+                            <input type="text" name="sugestao" class="form-control" placeholder="Busque por alguma sugestão já adicionada!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1">
+                            <button type="submit" class="btn btn-info">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class=" col-sm-10">
+
                     @if (Auth::id() === 1)
                         <div class="table-responsive">
                             <table class="table">
