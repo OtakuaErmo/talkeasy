@@ -29,7 +29,9 @@ Route::get('/usuario/cadastrar', 'Auth\RegisterController@showRegistrationForm')
 Route::post('/usuario/cadastrar', 'Auth\RegisterController@register')->name('usuario.register.do');
 
 Route::get('/likes', 'LikeController@index')->name('like');
-Route::post('/fazer/like/do', 'LikeController@store')->name('like.do');
+Route::post('/cadastrar/like/do', 'LikeController@store')->name('like.do');
+Route::get('/painel_de_controle/index', 'PainelController@index')->name('cpanel.index');
+
 Auth::routes([
     'login' => false,
     'reset' => false,

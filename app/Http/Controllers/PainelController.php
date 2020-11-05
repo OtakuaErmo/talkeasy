@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\LikeModel;
-use App\QTDLikeModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class LikeController extends Controller
+class PainelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +14,11 @@ class LikeController extends Controller
      */
     public function index()
     {
-        //$ObjLikes = LikeModel::orderBy('created_at')->get();
         if (Auth::id() === 1) {
-            $ObjQTDLikes = QTDLikeModel::orderBy('sugestao_id')->get();
-            return view('controlPanel.listLikes')->with('qtd_likes', $ObjQTDLikes);
+           return view('controlPanel.index');
+        }else {
+            return redirect()->route('index');
         }
-
-        //return view('likes.list')->with(['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]);
     }
 
     /**
@@ -44,19 +39,7 @@ class LikeController extends Controller
      */
     public function store(Request $request)
     {
-        if (DB::table('likes')->where(['usuario_id' => $request->usuario_id, 'sugestao_id' => $request->sugestao_id])->count() == 0) {
-            $request->validate([
-                'usuario_id' => 'required',
-                'sugestao_id' => 'required',
-            ]);
-            $ObjLikes = new LikeModel();
-            $ObjLikes->usuario_id = $request->usuario_id;
-            $ObjLikes->sugestao_id = $request->sugestao_id;
-            $ObjLikes->save();
-            return redirect()->back()->withInput()->withErrors(['Você gostou de uma Palavra!']);
-        } else{
-            return redirect()->back()->withInput()->withErrors(['Você já gostou dessa Palavra!']);
-        }
+        //
     }
 
     /**

@@ -27,4 +27,6 @@ class SugestaoController extends Controller
         $ObjSugestao->save();
         return redirect()->back()->withInput()->withErrors(['Sugestão inserida com sucesso!']);
     }
+
+    
 }
