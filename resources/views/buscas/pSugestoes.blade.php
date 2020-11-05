@@ -28,12 +28,19 @@
                     @endif
                     <form action="{{ action('SugestaoController@search')}}" method="POST">
                         @csrf
+                        <div class="input-group mb-1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Sugestão</span>
+                            </div>
+                            <input type="text" name="sugPal" class="form-control" placeholder="Busque por alguma sugestão já adicionada!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1">
+                            <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
+                        </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Buscar</span>
+                                <span class="input-group-text" id="basic-addon2">Sugestão</span>
                             </div>
-                            <input type="text" name="sugestao" class="form-control" placeholder="Busque por alguma sugestão já adicionada!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1">
-                            <button type="submit" class="btn btn-info">Buscar</button>
+                            <input type="text" name="sugTip" class="form-control" placeholder="Busque alguma sugestão por seu tipo!" aria-label="Busque alguma sugestão por seu tipo!" aria-describedby="basic-addon2">
+                            <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                     <!--LISTAGEM DAS SUGESTOES-->
@@ -71,7 +78,7 @@
                                         </th>
                                         @endif
                                         @if (Auth::id() === 1)
-                                        <td><a class="text-danger" href="{{action('SugestaoController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
+                                        <td><a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
                                         @endif
                                     </tr>
                                 </tbody>
@@ -79,7 +86,7 @@
                         </table>
                     </div>
                     <!--/LISTAGEM DAS SUGESTOES-->
-                    {{$sugestao->links()}}
+
                 </div>
             </div>
         </div>

@@ -72,6 +72,9 @@ class PalavraController extends Controller
         if (!empty($request->palavra)) {
             $query->where('palavra', 'like',  '%' . $request->palavra . '%');
         }
+        if (!empty($request->id_contexto)) {
+            $query->where('id_contexto', 'like',  '%' . $request->id_contexto . '%');
+        }
 
         $objPalavra = $query->orderBy('id', 'DESC')->paginate(15);
         //dd($objPalavra);

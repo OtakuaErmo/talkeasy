@@ -26,11 +26,11 @@ class SugestaoController extends Controller
         ]);
         $ObjSugestao = new SugestaoModel();
         $ObjSugestao->usuario_id = $request->usuario_id;
-        $ObjSugestao->sugestao = ucwords($request->sugestao);
+        $ObjSugestao->sugestao = ucfirst($request->sugestao);
         $ObjSugestao->tipo = mb_strtoupper($request->tipo);
         $ObjSugestao->cadastrado = mb_strtoupper($request->cadastrado);
         $ObjSugestao->save();
-        return redirect()->back()->withInput()->withErrors(['Sugestão :'.mb_strtoupper($request->sugestao,"utf-8").': inserida com sucesso!']);
+        return redirect()->back()->withInput()->withErrors(['Sugestão '.mb_strtoupper($request->sugestao,"utf-8").' inserida com sucesso!']);
     }
 
     public function remove($id)
@@ -50,12 +50,14 @@ class SugestaoController extends Controller
     {
         $query = DB::table('sugestoes');
 
-        if (!empty($request->sugestao)) {
-            $query->where('sugestao', 'like',  '%' . $request->sugestao . '%');
+        if (!empty($request->sugPal)) {
+            $query->where('sugestao', 'like',  '%' . $request->sugPal . '%');
         }
-
-        $objSugestao = $query->orderBy('id')->paginate(10);
-
+        if (!empty($request->sugTip)) {
+            $query->where('tipo', 'like',  '%' . $request->sugTip . '%');
+        }
+        $objSugestao = $query->orderBy('id')->get();
+        //dd($objSugestao);
         return view('buscas.pSugestoes')->with('sugestao', $objSugestao);
     }
 
