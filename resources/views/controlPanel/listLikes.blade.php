@@ -13,6 +13,23 @@
         <div class="container">
             <div class="row justify-content-center ">
                 <div class=" col-sm-10">
+                    <div class="card">
+                        <div class="card-body border border-dark">
+
+                            LOG:
+                            @if ($errors->all())
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger" role="alert">
+                                    {{$error}}
+                                </div>
+                            @endforeach
+                        @endif
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class=" col-sm-10">
                     @if (Auth::id() === 1)
                         <div class="table-responsive">
                             <table class="table">
@@ -29,12 +46,11 @@
                                         <tr>
                                             <th scope="row">{{$qtd_like->qtd_likes}}</th>
                                             <td scope="row">{{$qtd_like->sugestoes->sugestao}}</td>
-                                            <td><a href="{{action('SugestaoController@index')}}"><i class="far fa-edit"></i></a></td>
-                                            <td><a class="text-danger" href=""><i class="far fa-minus-square"></i></a></td>
+                                            <td><a href=""><i class="far fa-edit"></i></a></td>
+                                            <td><a class="text-danger" href="{{action('SugestaoController@remove', $qtd_like->sugestao_id)}}" onclick="return confirm('Tem certeza que deseja remover {{$qtd_like->sugestoes->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
                                         </tr>
                                     </tbody>
                                 @endforeach
-
                             </table>
                         @endif
                     </div>

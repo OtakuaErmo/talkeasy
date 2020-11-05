@@ -31,6 +31,7 @@ Route::post('/usuario/cadastrar', 'Auth\RegisterController@register')->name('usu
 Route::get('/likes', 'LikeController@index')->name('like');
 Route::post('/cadastrar/like/do', 'LikeController@store')->name('like.do');
 Route::get('/painel_de_controle/index', 'PainelController@index')->name('cpanel.index');
+Route::get('painel_de_controle/admin/remover/sugestao/{id}', 'SugestaoController@remove')->name('sugestao.remove');
 
 Auth::routes([
     'login' => false,

@@ -66,25 +66,31 @@
                                     @if (!Auth::guest())
                                     <th scope="col">Avaliar</th>
                                     @endif
+                                    @if (Auth::id() === 1)
+                                    <th scope="col">Remover</th>
+                                    @endif
                                 </tr>
                             </thead>
-                            @foreach ($sugestao as $sug)
+                            @foreach ($sugestao as $item)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">{{$sug->id}}</th>
-                                        <td scope="row">{{$sug->users->name}}</td>
-                                        <td scope="row">{{$sug->sugestao}}</td>
+                                        <th scope="row">{{$item->id}}</th>
+                                        <td scope="row">{{$item->users->name}}</td>
+                                        <td scope="row">{{$item->sugestao}}</td>
                                         @if (!Auth::guest())
                                         <th scope="row">
                                             <form action="{{action('LikeController@store')}} " method="POST">
                                                 @csrf
                                                 <input type="hidden" name="usuario_id" id="usuario_id" value="{{Auth::id()}}">
-                                                <input type="hidden" name="sugestao_id" id="sugestao_id" value="{{$sug->id}}">
+                                                <input type="hidden" name="sugestao_id" id="sugestao_id" value="{{$item->id}}">
                                                 <button type="submit" class="btn btn-success">
                                                     <i class=" fa fa-thumbs-up"></i>
                                                 </button>
                                             </form>
                                         </th>
+                                        @endif
+                                        @if (Auth::id() === 1)
+                                        <td><a class="text-danger" href="{{action('SugestaoController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
                                         @endif
                                     </tr>
                                 </tbody>

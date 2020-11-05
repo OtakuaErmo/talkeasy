@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\SugestaoModel;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SugestaoController extends Controller
@@ -28,5 +29,16 @@ class SugestaoController extends Controller
         return redirect()->back()->withInput()->withErrors(['Sugestão inserida com sucesso!']);
     }
 
-    
+    public function remove($id)
+    {
+        if (Auth::id() === 1) {
+            $objSugestao = SugestaoModel::findOrFail($id);
+            $data = $objSugestao->sugestao;
+            $objSugestao->delete();
+
+            return redirect()->back()->withInput()->withErrors(['Sugestão '.$data.' removida com sucesso!']);
+            //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
+        }
+
+    }
 }
