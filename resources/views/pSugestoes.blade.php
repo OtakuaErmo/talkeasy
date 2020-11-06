@@ -27,7 +27,7 @@
                                         <form method="POST" action="{{ route('sugestao.do') }}">
                                             @csrf
                                             <div class="card-body">
-                                                <p class="text-center">Deixe aqui uma sugestão de melhoria, palavra ou gesto a ser acrescentado:</p>
+                                                <p class="text-center">Deixe aqui uma sugestão de palavra,contexto  ou melhoria a ser acrescentado:</p>
 
                                                 @if ($errors->all())
                                                     @foreach ($errors->all() as $error)
@@ -39,7 +39,7 @@
                                                 <input type="hidden" id="id" name="id">
                                                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Contexto</label>
                                                         <select name="tipo" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                                            <option>O que é sua sugestão?</option>
+                                                            <option value="">O que é sua sugestão?</option>
                                                                 <option value="palavra">Palavra</option>
                                                                 <option value="contexto">Contexto</option>
                                                                 <option value="melhoria">Melhoria</option>
@@ -70,15 +70,29 @@
                                 <span class="input-group-text" id="basic-addon1">Sugestão</span>
                             </div>
                             <input type="text" name="sugPal" class="form-control" placeholder="Busque por alguma sugestão já adicionada!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1">
-                            <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
                         </div>
                         <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon2">Sugestão</span>
+                                </div>
+                                <select name="sugTip" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                        <option value="">Caso prefira, filtre por contexos!</option>
+                                        <option value="palavra">Palavra</option>
+                                        <option value="contexto">Contexto</option>
+                                        <option value="melhoria">Melhoria</option>
+                                </select>
+                                <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
+                        </div>
+
+
+        <!--                <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">Sugestão</span>
                             </div>
                             <input type="text" name="sugTip" class="form-control" placeholder="Busque alguma sugestão por seu tipo!" aria-label="Busque alguma sugestão por seu tipo!" aria-describedby="basic-addon2">
                             <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
                         </div>
+        -->
                     </form>
 
                     <!--LISTAGEM DAS SUGESTOES-->

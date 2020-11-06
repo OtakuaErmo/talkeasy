@@ -6,6 +6,9 @@
         <div class="container pt-4">
             <h1 class="jumbotron-heading">Talk Easy</h1>
             <p class="jumbotron-heading">Glossário em LIBRAS para crianças</p>
+            @if (Auth::id() === 1)
+                <a class="text-warning" href="{{route('cpanel.contexto.create')}}"><i class="fas fa-plus-circle">Adicionar Contexto</i></a>
+            @endif
         </div>
     </section>
 

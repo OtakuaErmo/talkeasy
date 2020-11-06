@@ -20,7 +20,7 @@ class PalavraController extends Controller
     public function create()
     {
         $objContextos = ContextoModel::orderBy('id')->get();
-        return view("controlPanel.adicionarPalavra")->with('contextos', $objContextos);;
+        return view("controlPanel.adicionarPalavra")->with('contextos', $objContextos);
     }
 
     public function store(Request $request)
@@ -42,6 +42,31 @@ class PalavraController extends Controller
 
     }
 
+    public function edit($id)
+    {
+        $objContexto = ContextoModel::findorfail($id);
+
+        return view('cpanel.contexto.edit')->with('aluno', $objAluno);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'nome' => 'required|max:100',
+            'curso' => 'required',
+        ]);
+
+        $objAluno = AlunoModel::findorfail($request->id);
+        $objAluno->nome = $request->nome;
+        $objAluno->curso = $request->curso;
+        $objAluno->turma = $request->turma;
+
+        $objAluno->save();
+
+        return redirect()->action('AlunoController@index')
+            ->with('success', 'Aluno Editado com sucesso.');
+    }
+
     public function remove($id)
     {
         if (Auth::id() === 1) {
@@ -49,7 +74,7 @@ class PalavraController extends Controller
             $data = $ObjPalavra->palavra;
             $ObjPalavra->delete();
 
-            return redirect()->route('cpanel.index')->withInput()->withErrors(['Palavra '.mb_strtoupper($data,"utf-8").' removida com sucesso!']);
+            return redirect()->route('cpanel.palavra.list')->withInput()->withErrors(['Palavra '.mb_strtoupper($data,"utf-8").' removida com sucesso!']);
             //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
         }
 
