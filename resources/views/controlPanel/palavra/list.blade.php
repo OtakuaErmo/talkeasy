@@ -54,6 +54,8 @@
                                     <th scope="col">Contexto Id</th>
 
                                     @if (Auth::id() === 1)
+
+                                     <th scope="col">Editar</th>
                                     <th scope="col">Remover</th>
                                     @endif
                                 </tr>
@@ -66,8 +68,13 @@
                                         <td scope="row">{{$item->contextos->contexto}}</td>
 
                                         @if (Auth::id() === 1)
-                                        <td><a class="text-danger" href="{{action('PalavraController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->palavra}}?');"><i class="far fa-minus-square"></i></a></td>
+                                        <td><a class="btn btn-primary text-light" href="{{action('ContextoController@remove', $item->id)}}"><i class="far fa-edit"></i></a>
+                                        </td>
+                                        <td><a class="btn btn-danger text-light" href="{{action('PalavraController@remove', $item->id)}}"
+                                            onclick="return confirm('Tem certeza que deseja remover {{$item->palavra}}?');">
+                                            <i class="far fa-minus-square"></i></a></td>
                                         @endif
+
                                     </tr>
                                 </tbody>
                             @endforeach
