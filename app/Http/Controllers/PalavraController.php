@@ -20,7 +20,7 @@ class PalavraController extends Controller
     public function create()
     {
         $objContextos = ContextoModel::orderBy('id')->get();
-        return view("controlPanel.adicionarPalavra")->with('contextos', $objContextos);
+        return view("controlPanel.palavra.adicionar")->with('contextos', $objContextos);
     }
 
     public function store(Request $request)
@@ -44,27 +44,9 @@ class PalavraController extends Controller
 
     public function edit($id)
     {
-        $objContexto = ContextoModel::findorfail($id);
+        $objPalavra = PalavraModel::findorfail($id);
 
-        return view('cpanel.contexto.edit')->with('aluno', $objAluno);
-    }
-
-    public function update(Request $request)
-    {
-        $request->validate([
-            'nome' => 'required|max:100',
-            'curso' => 'required',
-        ]);
-
-        $objAluno = AlunoModel::findorfail($request->id);
-        $objAluno->nome = $request->nome;
-        $objAluno->curso = $request->curso;
-        $objAluno->turma = $request->turma;
-
-        $objAluno->save();
-
-        return redirect()->action('AlunoController@index')
-            ->with('success', 'Aluno Editado com sucesso.');
+        return view('cpanel.palavra.edit')->with('contexto', $objPalavra);
     }
 
     public function remove($id)
@@ -84,7 +66,7 @@ class PalavraController extends Controller
     {
         if (Auth::id() === 1) {
             $ObjPalavras = PalavraModel::orderBy('id_contexto', 'DESC')->paginate(15);
-            return view('controlPanel.removerPalavra')->with('palavras', $ObjPalavras);
+            return view('controlPanel.palavra.list')->with('palavras', $ObjPalavras);
         }
 
     }
@@ -103,7 +85,7 @@ class PalavraController extends Controller
 
         $objPalavra = $query->orderBy('id', 'DESC')->paginate(15);
         //dd($objPalavra);
-        return view('buscas.listRemoverPalavras')->with('palavras', $objPalavra);
+        return view('buscas.listRemover.palavras')->with('palavras', $objPalavra);
     }
 
 }

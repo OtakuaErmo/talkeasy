@@ -37,14 +37,16 @@ Route::get('/painel_de_controle/admin/remover/sugestao/{id}', 'SugestaoControlle
 Route::get('/painel_de_controle/admin/palavra/create', "PalavraController@create")->name('cpanel.palavra.create');
 Route::post('/painel_de_controle/admin/palavra/store/do', "PalavraController@store")->name('cpanel.palavra.create.do');
 Route::get('/painel_de_controle/admin/palavras/listagem', 'PalavraController@showAll')->name('cpanel.palavra.list');
+
 Route::get('/painel_de_controle/admin/palavra/remove/{id}', 'PalavraController@remove')->name('palavra.remove');
+
 Route::post('/painel_de_controle/admin/palavra/buscar/do', 'PalavraController@search')->name('palavra.search.do');
 
 Route::get('/painel_de_controle/admin/contexto/create', "ContextoController@create")->name('cpanel.contexto.create');
 Route::post('/painel_de_controle/admin/contexto/store/do', "ContextoController@store")->name('cpanel.contexto.create.do');
 Route::get('/painel_de_controle/admin/contextos/listagem', 'ContextoController@showAll')->name('cpanel.contexto.list');
 Route::post('/painel_de_controle/admin/contexto/buscar/do', 'ContextoController@search')->name('contexto.search.do');
-Route::get('/painel_de_controle/admin/palavra/remove/{id}', 'ContextoController@remove')->name('contexto.remove');
+Route::get('/painel_de_controle/admin/contexto/remove/{id}', 'ContextoController@remove')->name('contexto.remove');
 
 
 

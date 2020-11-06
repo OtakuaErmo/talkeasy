@@ -50,8 +50,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">PALAVRA</th>
                                     <th scope="col">Contexto Id</th>
-                                    <th scope="col">Palavra</th>
+
                                     @if (Auth::id() === 1)
                                     <th scope="col">Remover</th>
                                     @endif
@@ -61,12 +62,11 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">{{$item->id}}</th>
-                                        <td scope="row">{{$item->contextos->contexto}}</td>
                                         <td scope="row">{{$item->palavra}}</td>
+                                        <td scope="row">{{$item->contextos->contexto}}</td>
+
                                         @if (Auth::id() === 1)
-                                        <td><a class="text-danger" href="{{action('PalavraController@remove', $item->id)}}"
-                                            onclick="return confirm('Tem certeza que deseja remover {{$item->palavra}}?');">
-                                            <i class="far fa-minus-square"></i></a></td>
+                                        <td><a class="text-danger" href="{{action('PalavraController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->palavra}}?');"><i class="far fa-minus-square"></i></a></td>
                                         @endif
                                     </tr>
                                 </tbody>

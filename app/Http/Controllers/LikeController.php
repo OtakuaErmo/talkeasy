@@ -21,7 +21,7 @@ class LikeController extends Controller
         if (Auth::id() === 1) {
             $ObjQTDLikes = QTDLikeModel::orderBy('qtd_likes', 'DESC')->get();
             //$ObjQTDLikes = QTDLikeModel::orderBy('sugestao_id')->get();
-            return view('controlPanel.listLikes')->with('qtd_likes', $ObjQTDLikes);
+            return view('controlPanel.sugestao.listLikes')->with('qtd_likes', $ObjQTDLikes);
         }
 
         //return view('likes.list')->with(['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]);

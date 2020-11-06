@@ -19,7 +19,7 @@ class ContextoController extends Controller
     public function create()
     {
         if (Auth::id() === 1) {
-            return view("controlPanel.adicionarContexto");
+            return view("controlPanel.contexto.adicionar");
         }
     }
 
@@ -57,7 +57,7 @@ class ContextoController extends Controller
     {
         if (Auth::id() === 1) {
             $objContexto = ContextoModel::orderBy('id', 'DESC')->paginate(15);
-            return view('controlPanel.removerContexto')->with('contextos', $objContexto);
+            return view('controlPanel.contexto.list')->with('contextos', $objContexto);
         }
 
     }
@@ -72,6 +72,6 @@ class ContextoController extends Controller
 
         $objContexto = $query->orderBy('id', 'DESC')->paginate(15);
         //dd($objContexto);
-        return view('buscas.listRemoverPalavras')->with('palavras', $objContexto);
+        return view('buscas.listRemover.contextos')->with('contextos', $objContexto);
     }
 }
