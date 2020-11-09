@@ -17,7 +17,7 @@
           <div class="col-12">
             <div class="card">
                 <div class="card-body border border-dark">
-                    <p><b> Identificador de Administração:</b> {{Auth::user()->id}}.<br><b>Administrador:</b> {{Auth::user()->email}}.</p>
+                    <p><b>Administrador:</b> {{Auth::user()->email}}. <b>ID:</b> {{Auth::user()->id}}</p>
                     LOG:
                     @if ($errors->all())
                     @foreach ($errors->all() as $error)

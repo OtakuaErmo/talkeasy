@@ -26,70 +26,79 @@
                             </div>
                         @endforeach
                     @endif
-                    <form action="{{ action('SugestaoController@search')}}" method="POST">
-                        @csrf
-                        <div class="input-group mb-1">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Sugestão</span>
-                            </div>
-                            <input type="text" name="sugPal" class="form-control" placeholder="Busque por alguma sugestão já adicionada!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon2">Tipos</span>
+                    <div class="row justify-content-center ">
+                        <div class=" col-sm-10">
+                            <form action="{{ action('SugestaoController@search')}}" method="POST">
+                                @csrf
+                                <div class="input-group mb-1">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Sugestão</span>
+                                    </div>
+                                    <input type="text" name="sugPal" class="form-control" placeholder="Busque por alguma sugestão já adicionada!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1">
                                 </div>
-                                <select name="sugTip" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                        <option value="">Caso prefira, filtre por tipos!</option>
-                                        <option value="palavra">Palavra</option>
-                                        <option value="contexto">Contexto</option>
-                                        <option value="melhoria">Melhoria</option>
-                                </select>
-                                <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
+                                <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon2">Tipos</span>
+                                        </div>
+                                        <select name="sugTip" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                                <option value="">Caso prefira, filtre por tipos!</option>
+                                                <option value="palavra">Palavra</option>
+                                                <option value="contexto">Contexto</option>
+                                                <option value="melhoria">Melhoria</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
+
                     <!--LISTAGEM DAS SUGESTOES-->
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Sugestão</th>
-                                    <th scope="col">Tipo</th>
-                                    <th scope="col">Cadastrada</th>
-                                    @if (!Auth::guest())
-                                    <th scope="col">Avaliar</th>
-                                    @endif
-                                    @if (Auth::id() === 1)
-                                    <th scope="col">Remover</th>
-                                    @endif
-                                </tr>
-                            </thead>
-                            @foreach ($sugestao as $item)
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">{{$item->id}}</th>
-                                        <td scope="row">{{$item->sugestao}}</td>
-                                        <td scope="row">{{$item->tipo}}</td>
-                                        <td scope="row">{{$item->cadastrado}}</td>
-                                        @if (!Auth::guest())
-                                        <th scope="row">
-                                            <form action="{{action('LikeController@store')}}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="usuario_id" id="usuario_id" value="{{Auth::id()}}">
-                                                <input type="hidden" name="sugestao_id" id="sugestao_id" value="{{$item->id}}">
-                                                <button type="submit" class="btn btn-success">
-                                                    <i class=" fa fa-thumbs-up"></i>
-                                                </button>
-                                            </form>
-                                        </th>
-                                        @endif
-                                        @if (Auth::id() === 1)
-                                        <td><a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
-                                        @endif
-                                    </tr>
-                                </tbody>
-                            @endforeach
-                        </table>
+                    <div class="row justify-content-center ">
+                        <div class=" col-sm-10">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Sugestão</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Cadastrada</th>
+                                            @if (!Auth::guest())
+                                            <th scope="col">Avaliar</th>
+                                            @endif
+                                            @if (Auth::id() === 1)
+                                            <th scope="col">Remover</th>
+                                            @endif
+                                        </tr>
+                                    </thead>
+                                    @foreach ($sugestao as $item)
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">{{$item->id}}</th>
+                                                <td scope="row">{{$item->sugestao}}</td>
+                                                <td scope="row">{{$item->tipo}}</td>
+                                                <td scope="row">{{$item->cadastrado}}</td>
+                                                @if (!Auth::guest())
+                                                <th scope="row">
+                                                    <form action="{{action('LikeController@store')}}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="usuario_id" id="usuario_id" value="{{Auth::id()}}">
+                                                        <input type="hidden" name="sugestao_id" id="sugestao_id" value="{{$item->id}}">
+                                                        <button type="submit" class="btn btn-success">
+                                                            <i class=" fa fa-thumbs-up"></i>
+                                                        </button>
+                                                    </form>
+                                                </th>
+                                                @endif
+                                                @if (Auth::id() === 1)
+                                                <td><a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
+                                                @endif
+                                            </tr>
+                                        </tbody>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <!--/LISTAGEM DAS SUGESTOES-->
 

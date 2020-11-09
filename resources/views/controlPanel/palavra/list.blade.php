@@ -5,7 +5,7 @@
     <section class="jumbotron text-center pb-5 pt-5 card text-white bg-info mb-5 mt-4">
         <div class="container pt-4">
             <h1 class="jumbotron-heading">PAINEL DE ADMINISTRAÇÃO</h1>
-            <p class="jumbotron-heading">Remover uma Palavra</p>
+            <p class="jumbotron-heading">Listagem completa das PALAVRAS</p>
         </div>
     </section>
 
@@ -37,7 +37,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Buscar</span>
                             </div>
-                            <input type="text" name="palavra" class="form-control" placeholder="Busque por alguma palavra específica" aria-label="Busque por alguma palavra específica" aria-describedby="basic-addon1">
+                            <input type="text" name="palavra" class="form-control" placeholder="Busque por palavra" aria-label="Busque por palavra" aria-describedby="basic-addon1">
                             <button type="submit" class="btn btn-info">Buscar</button>
                         </div>
                     </form>
