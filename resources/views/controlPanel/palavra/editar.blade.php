@@ -36,7 +36,7 @@
                     <input type="hidden" id="id" name="id" value="{{$palavra->id}}">
                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Contexto</label>
                             <select name="id_contexto" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                            <option value="{{$palavra->id_contexto}}">{{$palavra->contextos->contexto}}</option>
+                        <option value="{{$palavra->id_contexto}}">{{$palavra->contextos->contexto}}</option>
                         @foreach ($contextos as $contexto)
                             <option value="{{$contexto->id}}">
                                 {{$contexto->contexto}}
@@ -63,7 +63,7 @@
                         <input type="text" name="video_src" value="{{$palavra->video_src}}" class="form-control" placeholder="Não esqueça de fazer upload dos vídeos no youtube!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1">
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-info ">Adicionar</button>
+                            <button type="submit" class="btn btn-info ">Atualizar</button>
                         </div>
                     </form>
                 </div>

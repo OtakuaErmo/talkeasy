@@ -45,7 +45,7 @@ class ContextoController extends Controller
             $objContexto = ContextoModel::findorfail($id);
             return view('controlPanel.contexto.editar')->with('contexto', $objContexto);
         } else{
-            return view('index');
+            return view('pInicio');
         }
     }
 

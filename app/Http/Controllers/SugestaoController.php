@@ -33,6 +33,43 @@ class SugestaoController extends Controller
         return redirect()->back()->withInput()->withErrors(['Sugestão '.mb_strtoupper($request->sugestao,"utf-8").' inserida com sucesso!']);
     }
 
+    public function edit($id)
+    {
+        if (Auth::id() === 1) {
+            $objSugestao = SugestaoModel::findorfail($id);
+           // $objContexto = ContextoModel::orderBy('id')->get();
+           //return view('controlPanel.palavra.editar')->with(['palavra' => $objPalavra, 'contextos' =>$objContexto]);
+            return view('controlPanel.sugestao.editar')->with('sugestao', $objSugestao);
+            //['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]
+        } else{
+            return view('pInicio');
+        }
+    }
+
+    public function update(Request $request)
+    {
+        if (Auth::id() === 1) {
+        $request->validate([
+            'usuario_id' => 'required',
+            'sugestao' => 'required|max:255',
+            'tipo' => 'required|max:8',
+            'cadastrado' => 'required|max:3'
+        ]);
+
+        $objSugestao = SugestaoModel::findorfail($request->id);
+        $objSugestao->usuario_id = $request->usuario_id;
+        $objSugestao->sugestao = $request->sugestao;
+        $objSugestao->tipo = $request->tipo;
+        $objSugestao->cadastrado = $request->cadastrado;
+
+        $objSugestao->save();
+
+        return redirect()->route('sugestao')->withInput()->withErrors(['Sugestao '.mb_strtoupper($request->sugestao, "utf-8").' editada com sucesso!']);
+        } else {
+            return view('pInicio');
+        }
+    }
+
     public function remove($id)
     {
         if (Auth::id() === 1) {

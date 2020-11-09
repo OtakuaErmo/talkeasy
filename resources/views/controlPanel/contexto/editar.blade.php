@@ -47,7 +47,7 @@
                             <input type="text" name="imagem" value="{{$contexto->imagem}}" class="form-control" placeholder="Não esqueça de fazer upload das imagens na pasta!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1">
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-info ">Adicionar</button>
+                            <button type="submit" class="btn btn-info ">Atualizar</button>
                         </div>
                     </form>
                 </div>

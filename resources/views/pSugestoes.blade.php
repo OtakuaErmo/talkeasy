@@ -126,8 +126,17 @@
                                         </th>
                                         @endif
                                         @if (Auth::id() === 1)
-                                        <td><a class="btn btn-primary text-light" href=""><i class="far fa-edit"></i></a></td>
-                                        <td><a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
+                                        <td>
+                                            <a class="btn btn-primary text-light" href="{{action('SugestaoController@edit', $item->id)}}">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $item->id)}}"
+                                                onclick="return confirm('Tem certeza que deseja remover {{$item->sugestao}}?');">
+                                                <i class="far fa-minus-square"></i>
+                                            </a>
+                                        </td>
                                         @endif
                                     </tr>
                                 </tbody>

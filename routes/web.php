@@ -39,7 +39,9 @@ Route::get('/painel_de_controle/admin/index', 'PainelController@index')->name('c
 Route::get('/listar/sugestao', 'SugestaoController@index')->name('sugestao');
 Route::post('/fazer/sugestao/do', 'SugestaoController@store')->name('sugestao.do');
 Route::post('/fazer/sugestao/buscar/do', 'SugestaoController@search')->name('sugestao.search.do');
-Route::get('/painel_de_controle/admin/remover/sugestao/{id}', 'SugestaoController@remove')->name('sugestao.remove');
+Route::get('/painel_de_controle/admin/sugestao/edit/{id}', 'SugestaoController@edit')->name('sugestao.edit');
+Route::post('/painel_de_controle/admin/sugestao/edit/do/', 'SugestaoController@update')->name('sugestao.edit.do');
+Route::get('/painel_de_controle/admin/sugestao/remover/{id}', 'SugestaoController@remove')->name('sugestao.remove');
 
 //likes
 Route::get('/likes', 'LikeController@index')->name('like');

@@ -81,7 +81,7 @@ class PalavraController extends Controller
 
         return redirect()->route('cpanel.palavra.list')->withInput()->withErrors(['Palavra '.mb_strtoupper($request->palavra, "utf-8").' editada com sucesso!']);
         } else {
-            return view('index');
+            return view('pInicio');
         }
     }
 

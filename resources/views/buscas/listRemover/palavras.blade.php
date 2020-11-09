@@ -42,7 +42,8 @@
                                             <th scope="col">Contexto ID</th>
                                             <th scope="col">Palavra</th>
                                             @if (Auth::id() === 1)
-                                                <th scope="col">Remover</th>
+                                            <th scope="col">Editar</th>
+                                            <th scope="col">Remover</th>
                                             @endif
                                         </tr>
                                     </thead>
@@ -53,7 +54,17 @@
                                                 <td scope="row">{{$item->id_contexto}}</td>
                                                 <td scope="row">{{$item->palavra}}</td>
                                                 @if (Auth::id() === 1)
-                                                    <td><a class="text-danger" href="{{action('PalavraController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->palavra}}?');"><i class="far fa-minus-square"></i></a></td>
+                                                    <td>
+                                                        <a class="btn btn-primary text-light" href="{{action('PalavraController@edit', $item->id)}}">
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-danger text-light" href="{{action('PalavraController@remove', $item->id)}}"
+                                                        onclick="return confirm('Tem certeza que deseja remover {{$item->palavra}}?');">
+                                                            <i class="far fa-minus-square"></i>
+                                                        </a>
+                                                    </td>
                                                 @endif
                                             </tr>
                                         </tbody>
