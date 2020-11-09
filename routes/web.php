@@ -22,7 +22,7 @@ Auth::routes([
     'register' =>false,
     ]);
 
-//Route::get('/usuario', 'AuthController@index')->name('usuario');
+Route::get('/usuario', 'AuthController@index')->name('usuario');
 Route::get('/usuario/cadastrar', 'Auth\RegisterController@showRegistrationForm')->name('usuario.register');
 Route::post('/usuario/cadastrar', 'Auth\RegisterController@register')->name('usuario.register.do');
 Route::get('/usuario/login', 'AuthController@showLoginForm')->name('usuario.login');
