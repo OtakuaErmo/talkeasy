@@ -16,9 +16,12 @@
             <img src="{{ url('imagens/talkeasy/libras-logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
             Talk Easy
           </a>
-          @if (Auth::id() === 1)
-        <a class="btn btn-warning border-dark" href="{{route('cpanel.index')}}">PAINEL DE CONTROLE</a>
+          @if (!Auth::guest())
+            @if (Auth::id() === 1)
+                <a class="btn btn-warning border-dark" href="{{route('cpanel.index')}}">PAINEL DE CONTROLE</a>
+            @endif
           @endif
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
       </button>

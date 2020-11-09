@@ -19,13 +19,13 @@ class SugestaoTableSeeder extends Seeder
         ]);
 */
         SugestaoModel::create([
-            'usuario_id' => '1',
-            'sugestao' => 'Pêssego',
-            'tipo' => 'PALAVRA',
+            'usuario_id' => '2',
+            'sugestao' => 'Informática',
+            'tipo' => 'CONTEXTO',
             'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
-            'usuario_id' => '1',
+            'usuario_id' => '2',
             'sugestao' => 'Pato',
             'tipo' => 'PALAVRA',
             'cadastrado' => 'NÃO'
@@ -40,6 +40,12 @@ class SugestaoTableSeeder extends Seeder
             'usuario_id' => '5',
             'sugestao' => 'Banana',
             'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
+        ]);
+        SugestaoModel::create([
+            'usuario_id' => '2',
+            'sugestao' => 'Alterar botão de avaliação',
+            'tipo' => 'MELHORIA',
             'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
@@ -61,7 +67,13 @@ class SugestaoTableSeeder extends Seeder
             'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
-            'usuario_id' => '1',
+            'usuario_id' => '3',
+            'sugestao' => 'Doces',
+            'tipo' => 'CONTEXTO',
+            'cadastrado' => 'NÃO'
+        ]);
+        SugestaoModel::create([
+            'usuario_id' => '5',
             'sugestao' => 'Camiseta',
             'tipo' => 'PALAVRA',
             'cadastrado' => 'NÃO'
@@ -70,6 +82,12 @@ class SugestaoTableSeeder extends Seeder
             'usuario_id' => '6',
             'sugestao' => 'Tomate',
             'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
+        ]);
+        SugestaoModel::create([
+            'usuario_id' => '2',
+            'sugestao' => 'Adicionar mais frutas no contexto Frutas',
+            'tipo' => 'MELHORIA',
             'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
@@ -100,6 +118,12 @@ class SugestaoTableSeeder extends Seeder
             'usuario_id' => '4',
             'sugestao' => 'Tênis',
             'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
+        ]);
+        SugestaoModel::create([
+            'usuario_id' => '3',
+            'sugestao' => 'Eletrônicos',
+            'tipo' => 'CONTEXTO',
             'cadastrado' => 'NÃO'
         ]);
         SugestaoModel::create([
