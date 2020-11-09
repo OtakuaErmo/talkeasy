@@ -39,6 +39,36 @@ class ContextoController extends Controller
 
     }
 
+    public function edit($id)
+    {
+        if (Auth::id() === 1) {
+            $objContexto = ContextoModel::findorfail($id);
+            return view('controlPanel.contexto.editar')->with('contexto', $objContexto);
+        } else{
+            return view('index');
+        }
+    }
+
+    public function update(Request $request)
+    {
+        if (Auth::id() === 1) {
+        $request->validate([
+            'contexto' => 'required|max:50',
+            'imagem' => 'required',
+        ]);
+
+        $objContexto = ContextoModel::findorfail($request->id);
+        $objContexto->contexto = $request->contexto;
+        $objContexto->imagem = $request->imagem;
+
+        $objContexto->save();
+
+        return redirect()->route('cpanel.contexto.list')->withInput()->withErrors(['Contexto '.mb_strtoupper($request->contexto, "utf-8").' editado com sucesso!']);
+        } else {
+            return view('index');
+        }
+    }
+
     public function remove($id)
     {
         if (Auth::id() === 1) {

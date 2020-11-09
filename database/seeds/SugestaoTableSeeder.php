@@ -108,6 +108,12 @@ class SugestaoTableSeeder extends Seeder
             'tipo' => 'PALAVRA',
             'cadastrado' => 'NÃO'
         ]);
+        SugestaoModel::create([
+            'usuario_id' => '2',
+            'sugestao' => 'Pêssego',
+            'tipo' => 'PALAVRA',
+            'cadastrado' => 'NÃO'
+        ]);
 
     }
 }

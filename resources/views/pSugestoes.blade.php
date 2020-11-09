@@ -27,7 +27,7 @@
                                         <form method="POST" action="{{ route('sugestao.do') }}">
                                             @csrf
                                             <div class="card-body">
-                                                <p class="text-center">Deixe aqui uma sugestão de palavra,contexto  ou melhoria a ser acrescentado:</p>
+                                                <p class="text-center">Deixe aqui uma sugestão de palavra, contexto  ou melhoria a ser acrescentado:</p>
 
                                                 @if ($errors->all())
                                                     @foreach ($errors->all() as $error)
@@ -73,26 +73,16 @@
                         </div>
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon2">Sugestão</span>
+                                    <span class="input-group-text" id="basic-addon2">Tipos</span>
                                 </div>
                                 <select name="sugTip" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                        <option value="">Caso prefira, filtre por contexos!</option>
+                                        <option value="">Caso prefira, filtre por tipos!</option>
                                         <option value="palavra">Palavra</option>
                                         <option value="contexto">Contexto</option>
                                         <option value="melhoria">Melhoria</option>
                                 </select>
                                 <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
                         </div>
-
-
-        <!--                <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2">Sugestão</span>
-                            </div>
-                            <input type="text" name="sugTip" class="form-control" placeholder="Busque alguma sugestão por seu tipo!" aria-label="Busque alguma sugestão por seu tipo!" aria-describedby="basic-addon2">
-                            <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
-                        </div>
-        -->
                     </form>
 
                     <!--LISTAGEM DAS SUGESTOES-->
@@ -110,6 +100,7 @@
                                     <th scope="col">Avaliar</th>
                                     @endif
                                     @if (Auth::id() === 1)
+                                    <th scope="col">Editar</th>
                                     <th scope="col">Remover</th>
                                     @endif
                                 </tr>
@@ -135,6 +126,7 @@
                                         </th>
                                         @endif
                                         @if (Auth::id() === 1)
+                                        <td><a class="btn btn-primary text-light" href=""><i class="far fa-edit"></i></a></td>
                                         <td><a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $item->id)}}" onclick="return confirm('Tem certeza que deseja remover {{$item->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
                                         @endif
                                     </tr>

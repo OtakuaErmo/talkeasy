@@ -42,8 +42,8 @@
                 <a type="button" href="{{route('cpanel.contexto.list')}}" class="btn btn-danger btn-block border border-dark">Listar Contexto</a>
 
                 <a type="button" href="{{route('cpanel.palavra.create')}}" class="btn btn-warning btn-block border border-dark">Adicionar Palavra</a>
-                <a type="button" href="{{route('cpanel.palavra.list')}}" class="btn btn-danger btn-block border border-dark">Listar Palavra</a>
-                <a type="button" class="btn btn-warning btn-block border border-dark">Warning</a>
+               <a type="button" href="{{route('cpanel.palavra.list')}}" class="btn btn-danger btn-block border border-dark">Listar Palavra</a>
+                 <!--<a type="button" class="btn btn-warning btn-block border border-dark">Warning</a>-->
                 <br>
             </div>
             </div>

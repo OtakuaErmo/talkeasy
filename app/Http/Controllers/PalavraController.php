@@ -44,9 +44,38 @@ class PalavraController extends Controller
 
     public function edit($id)
     {
-        $objPalavra = PalavraModel::findorfail($id);
+        if (Auth::id() === 1) {
+            $objPalavra = PalavraModel::findorfail($id);
+            $objContexto = ContextoModel::orderBy('id')->get();
+            return view('controlPanel.palavra.editar')->with(['palavra' => $objPalavra, 'contextos' =>$objContexto]);
+            //['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]
+        } else{
+            return view('index');
+        }
+    }
 
-        return view('cpanel.palavra.edit')->with('contexto', $objPalavra);
+    public function update(Request $request)
+    {
+        if (Auth::id() === 1) {
+        $request->validate([
+            'id_contexto' => 'required',
+            'palavra' => 'required|max:50',
+            'imagem' => 'required',
+            'video_src' => 'required|max:50'
+        ]);
+
+        $objPalavra = PalavraModel::findorfail($request->id);
+        $objPalavra->id_contexto = $request->id_contexto;
+        $objPalavra->palavra = $request->palavra;
+        $objPalavra->imagem = $request->imagem;
+        $objPalavra->video_src = $request->video_src;
+
+        $objPalavra->save();
+
+        return redirect()->route('cpanel.palavra.list')->withInput()->withErrors(['Palavra '.mb_strtoupper($request->palavra, "utf-8").' editada com sucesso!']);
+        } else {
+            return view('index');
+        }
     }
 
     public function remove($id)

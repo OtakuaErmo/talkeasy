@@ -23,7 +23,7 @@
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <p><img class=" img-fluid"  src="{{ url('imagens/contexto/'.$item->imagem) }}" style="width: 120px; height: 120px" alt="{{$item->imagem}}"></p>
+                                            <p><img class=" img-fluid"  src="{{ url('imagens/contexto/'.$item->imagem) }}" style="width: 120px; height: 120px"></p>
                                             <button type="button" class="btn btn-info btn-lg btn-block" id="{{$item->id}}">{{$item->contexto}}</button>
                                             <script>
                                                 document.getElementById({{$item->id}}).onclick = function () {

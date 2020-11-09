@@ -37,7 +37,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Buscar</span>
                             </div>
-                            <input type="text" name="contexto" class="form-control" placeholder="Busque por alguma palavra específica" aria-label="Busque por alguma palavra específica" aria-describedby="basic-addon1">
+                            <input type="text" name="contexto" class="form-control" placeholder="Busque por algum contexto" aria-label="Busque por algum contexto" aria-describedby="basic-addon1">
                             <button type="submit" class="btn btn-info">Buscar</button>
                         </div>
                     </form>
@@ -63,7 +63,7 @@
                                         <th scope="row">{{$item->id}}</th>
                                         <td scope="row">{{$item->contexto}}</td>
                                         @if (Auth::id() === 1)
-                                        <td><a class="btn btn-primary text-light" href="{{action('ContextoController@remove', $item->id)}}"><i class="far fa-edit"></i></a>
+                                        <td><a class="btn btn-primary text-light" href="{{action('ContextoController@edit', $item->id)}}"><i class="far fa-edit"></i></a>
                                         </td>
                                         <td><a class="btn btn-danger text-light" href="{{action('ContextoController@remove', $item->id)}}"
                                             onclick="return confirm('Tem certeza que deseja remover {{$item->contexto}}? (Todas as palavras desse contexto serão apagadas também)');">

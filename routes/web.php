@@ -47,6 +47,12 @@ Route::post('/painel_de_controle/admin/contexto/store/do', "ContextoController@s
 Route::get('/painel_de_controle/admin/contextos/listagem', 'ContextoController@showAll')->name('cpanel.contexto.list');
 Route::post('/painel_de_controle/admin/contexto/buscar/do', 'ContextoController@search')->name('contexto.search.do');
 Route::get('/painel_de_controle/admin/contexto/remove/{id}', 'ContextoController@remove')->name('contexto.remove');
+Route::get('/painel_de_controle/admin/contexto/edit/{id}', 'ContextoController@edit')->name('contexto.edit');
+Route::post('/painel_de_controle/admin/contexto/edit/do/', 'ContextoController@update')->name('contexto.edit.do');
+
+Route::get('/painel_de_controle/admin/palavra/edit/{id}', 'PalavraController@edit')->name('palavra.edit');
+Route::post('/painel_de_controle/admin/palavra/edit/do/', 'PalavraController@update')->name('palavra.edit.do');
+
 
 
 

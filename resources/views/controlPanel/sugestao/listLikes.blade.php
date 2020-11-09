@@ -48,8 +48,8 @@
                                         <tr>
                                             <th scope="row">{{$qtd_like->qtd_likes}}</th>
                                             <td scope="row">{{$qtd_like->sugestoes->sugestao}}</td>
-                                            <td><a href=""><i class="far fa-edit"></i></a></td>
-                                            <td><a class="text-danger" href="{{action('SugestaoController@remove', $qtd_like->sugestao_id)}}" onclick="return confirm('Tem certeza que deseja remover {{$qtd_like->sugestoes->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
+                                            <td><a class="btn btn-primary text-light" href=""><i class="far fa-edit"></i></a></td>
+                                            <td><a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $qtd_like->sugestao_id)}}" onclick="return confirm('Tem certeza que deseja remover {{$qtd_like->sugestoes->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
                                         </tr>
                                     </tbody>
                                 @endforeach
