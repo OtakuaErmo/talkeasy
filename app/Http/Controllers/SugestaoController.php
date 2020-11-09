@@ -35,6 +35,9 @@ class SugestaoController extends Controller
 
     public function edit($id)
     {
+        if (!Auth::id() === 1) {
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
+        }
         if (Auth::id() === 1) {
             $objSugestao = SugestaoModel::findorfail($id);
            // $objContexto = ContextoModel::orderBy('id')->get();
@@ -42,7 +45,7 @@ class SugestaoController extends Controller
             return view('controlPanel.sugestao.editar')->with('sugestao', $objSugestao);
             //['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]
         } else{
-            return view('pInicio');
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
     }
 
@@ -79,6 +82,8 @@ class SugestaoController extends Controller
 
             return redirect()->route('cpanel.index')->withInput()->withErrors(['Sugestão '.mb_strtoupper($data, "utf-8").' removida com sucesso!']);
             //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
+        } else{
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
 
     }

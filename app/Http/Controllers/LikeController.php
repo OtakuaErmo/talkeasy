@@ -22,6 +22,8 @@ class LikeController extends Controller
             $ObjQTDLikes = QTDLikeModel::orderBy('qtd_likes', 'DESC')->get();
             //$ObjQTDLikes = QTDLikeModel::orderBy('sugestao_id')->get();
             return view('controlPanel.sugestao.listLikes')->with('qtd_likes', $ObjQTDLikes);
+        } else {
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
 
         //return view('likes.list')->with(['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]);

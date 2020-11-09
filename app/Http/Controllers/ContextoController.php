@@ -20,6 +20,8 @@ class ContextoController extends Controller
     {
         if (Auth::id() === 1) {
             return view("controlPanel.contexto.adicionar");
+        } else{
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
     }
 
@@ -41,11 +43,14 @@ class ContextoController extends Controller
 
     public function edit($id)
     {
+        if(!Auth::id() === 1) {
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
+        }
         if (Auth::id() === 1) {
             $objContexto = ContextoModel::findorfail($id);
             return view('controlPanel.contexto.editar')->with('contexto', $objContexto);
         } else{
-            return view('pInicio');
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
     }
 
@@ -78,6 +83,8 @@ class ContextoController extends Controller
 
             return redirect()->route('cpanel.contexto.list')->withInput()->withErrors(['Contexto '.mb_strtoupper($data,"utf-8").' removido com sucesso!']);
             //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
+        } else{
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
 
     }
@@ -88,6 +95,8 @@ class ContextoController extends Controller
         if (Auth::id() === 1) {
             $objContexto = ContextoModel::orderBy('id', 'DESC')->paginate(15);
             return view('controlPanel.contexto.list')->with('contextos', $objContexto);
+        } else{
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
 
     }

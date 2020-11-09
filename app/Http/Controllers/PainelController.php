@@ -17,8 +17,8 @@ class PainelController extends Controller
     {
         if (Auth::id() === 1) {
            return view('controlPanel.index');
-        }else {
-            return redirect()->route('index');
+        } else{
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
     }
 

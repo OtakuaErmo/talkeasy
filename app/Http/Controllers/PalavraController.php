@@ -26,8 +26,13 @@ class PalavraController extends Controller
 
     public function create()
     {
-        $objContextos = ContextoModel::orderBy('id')->get();
-        return view("controlPanel.palavra.adicionar")->with('contextos', $objContextos);
+        if (Auth::id() === 1) {
+            $objContextos = ContextoModel::orderBy('id')->get();
+            return view("controlPanel.palavra.adicionar")->with('contextos', $objContextos);
+        } else{
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
+        }
+
     }
 
     public function store(Request $request)
@@ -51,13 +56,16 @@ class PalavraController extends Controller
 
     public function edit($id)
     {
+        if (!Auth::id() === 1) {
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
+        }
         if (Auth::id() === 1) {
             $objPalavra = PalavraModel::findorfail($id);
             $objContexto = ContextoModel::orderBy('id')->get();
             return view('controlPanel.palavra.editar')->with(['palavra' => $objPalavra, 'contextos' =>$objContexto]);
             //['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]
         } else{
-            return view('pInicio');
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
     }
 
@@ -94,6 +102,8 @@ class PalavraController extends Controller
 
             return redirect()->route('cpanel.palavra.list')->withInput()->withErrors(['Palavra '.mb_strtoupper($data,"utf-8").' removida com sucesso!']);
             //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
+        } else {
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
 
     }
@@ -103,6 +113,8 @@ class PalavraController extends Controller
         if (Auth::id() === 1) {
             $ObjPalavras = PalavraModel::orderBy('id_contexto', 'DESC')->paginate(15);
             return view('controlPanel.palavra.list')->with('palavras', $ObjPalavras);
+        } else {
+            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
 
     }
