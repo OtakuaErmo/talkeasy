@@ -19,7 +19,7 @@
                             LOG:
                             @if ($errors->all())
                             @foreach ($errors->all() as $error)
-                                <div class="alert alert-danger" role="alert">
+                                <div class="alert alert-warning" role="alert">
                                     {{$error}}
                                 </div>
                             @endforeach
@@ -48,8 +48,19 @@
                                         <tr>
                                             <th scope="row">{{$qtd_like->qtd_likes}}</th>
                                             <td scope="row">{{$qtd_like->sugestoes->sugestao}}</td>
-                                            <td><a class="btn btn-primary text-light" href=""><i class="far fa-edit"></i></a></td>
-                                            <td><a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $qtd_like->sugestao_id)}}" onclick="return confirm('Tem certeza que deseja remover {{$qtd_like->sugestoes->sugestao}}?');"><i class="far fa-minus-square"></i></a></td>
+                                            @if (Auth::id() === 1)
+                                            <td>
+                                                <a class="btn btn-primary text-light" href="{{action('SugestaoController@edit', $qtd_like->sugestao_id)}}">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-danger text-light" href="{{action('SugestaoController@remove', $qtd_like->sugestao_id)}}"
+                                                    onclick="return confirm('Tem certeza que deseja remover {{$qtd_like->sugestoes->sugestao}}?');">
+                                                    <i class="far fa-minus-square"></i>
+                                                </a>
+                                            </td>
+                                            @endif
                                         </tr>
                                     </tbody>
                                 @endforeach
