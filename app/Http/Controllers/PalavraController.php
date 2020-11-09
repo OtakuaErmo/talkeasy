@@ -14,7 +14,14 @@ class PalavraController extends Controller
     public function index($id)
     {
         $ObjPalavras = PalavraModel::where('id_contexto', '=', $id)->get();
-        return view('pPalavras')->with('palavra', $ObjPalavras);
+        //dd($ObjPalavras[0]->id);
+        if (empty($ObjPalavras[0])) {
+            return redirect()->back()->withInput()->withErrors(['Desculpe, mas esse contexto não possui palavras cadastradas!']);
+            //return redirect()->route('index');
+        }else{
+            return view('pPalavras')->with('palavra', $ObjPalavras);
+        }
+
     }
 
     public function create()
@@ -50,7 +57,7 @@ class PalavraController extends Controller
             return view('controlPanel.palavra.editar')->with(['palavra' => $objPalavra, 'contextos' =>$objContexto]);
             //['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]
         } else{
-            return view('index');
+            return view('pInicio');
         }
     }
 

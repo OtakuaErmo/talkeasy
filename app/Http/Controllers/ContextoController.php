@@ -65,7 +65,7 @@ class ContextoController extends Controller
 
         return redirect()->route('cpanel.contexto.list')->withInput()->withErrors(['Contexto '.mb_strtoupper($request->contexto, "utf-8").' editado com sucesso!']);
         } else {
-            return view('index');
+            return view('pInicio');
         }
     }
 

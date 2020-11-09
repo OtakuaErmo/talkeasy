@@ -9,6 +9,13 @@
             @if (Auth::id() === 1)
                 <a class="text-warning" href="{{route('cpanel.contexto.create')}}"><i class="fas fa-plus-circle">Adicionar Contexto</i></a>
             @endif
+            @if ($errors->all())
+            @foreach ($errors->all() as $error)
+                <div>
+                    <p class="text-warning">{{$error}}</p>
+                </div>
+            @endforeach
+        @endif
         </div>
     </section>
 
