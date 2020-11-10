@@ -49,7 +49,7 @@
                                                 <div class="form-group">
                                                 <input type="text" name="sugestao" class="form-control" id="sugestao" maxlength="255">
                                                 </div>
-                                                <input type="hidden" id="cadastrado" name="cadastrado" value="nao">
+                                                <input type="hidden" id="cadastrado" name="cadastrado" value="não">
 
                                                 <button class="btn btn-info" type="submit">Enviar sugestão</button>
 

@@ -62,8 +62,8 @@ class SugestaoController extends Controller
         $objSugestao = SugestaoModel::findorfail($request->id);
         $objSugestao->usuario_id = $request->usuario_id;
         $objSugestao->sugestao = $request->sugestao;
-        $objSugestao->tipo = $request->tipo;
-        $objSugestao->cadastrado = $request->cadastrado;
+        $objSugestao->tipo = mb_strtoupper($request->tipo);
+        $objSugestao->cadastrado = mb_strtoupper($request->cadastrado);
 
         $objSugestao->save();
 

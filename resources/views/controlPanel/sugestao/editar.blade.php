@@ -50,7 +50,18 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Tipo</span>
                             </div>
-                        <input type="text" name="tipo" value="{{$sugestao->tipo}}" class="form-control" placeholder="Não esqueça de fazer upload dos vídeos no youtube!" aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1" readonly>
+                        <select name="tipo" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                            <option value="{{$sugestao->tipo}}">{{$sugestao->tipo}}</option>
+                                <option value="palavra">Palavra</option>
+                                <option value="contexto">Contexto</option>
+                                <option value="melhoria">Melhoria</option>
+                        </select>
+                        <!--
+                        <input type="text" name="tipo" value="{{--$sugestao->tipo--}}" class="form-control"
+                        placeholder="Não esqueça de fazer upload dos vídeos no youtube!"
+                        aria-label="Busque por alguma sugestão já adicionada!" aria-describedby="basic-addon1"
+                        readonly>
+                    -->
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">

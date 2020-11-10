@@ -56,7 +56,7 @@ class LikeController extends Controller
             $ObjLikes->usuario_id = $request->usuario_id;
             $ObjLikes->sugestao_id = $request->sugestao_id;
             $ObjLikes->save();
-            return redirect()->route('sugestao')->withInput()->withErrors(['Você gostou de uma Palavra!']);
+            return redirect()->route('sugestao')->withInput()->withErrors(['Você gostou de uma Sugestão!']);
             //return redirect()->back()->withInput()->withErrors(['Você gostou de uma Palavra!']);
         } elseif(DB::table('likes')->where(['usuario_id' => $request->usuario_id, 'sugestao_id' => $request->sugestao_id])->count() == 1) {
             //$objSugestao = SugestaoModel::findOrFail($id);
