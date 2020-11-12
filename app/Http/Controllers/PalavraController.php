@@ -74,9 +74,9 @@ class PalavraController extends Controller
         if (Auth::id() === 1) {
         $request->validate([
             'id_contexto' => 'required',
-            'palavra' => 'required|max:50',
+            //'palavra' => 'required|max:50',
             'imagem' => 'required',
-            'video_src' => 'required|max:50'
+            //'video_src' => 'required|max:50'
         ]);
 
         $objPalavra = PalavraModel::findorfail($request->id);

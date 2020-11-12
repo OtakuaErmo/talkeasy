@@ -30,7 +30,7 @@ class SugestaoController extends Controller
         $ObjSugestao->tipo = mb_strtoupper($request->tipo);
         $ObjSugestao->cadastrado = mb_strtoupper($request->cadastrado);
         $ObjSugestao->save();
-        return redirect()->back()->withInput()->withErrors(['Sugestão '.mb_strtoupper($request->sugestao,"utf-8").' inserida com sucesso!']);
+        return redirect()->back()->withInput()->withErrors(['Sugestão ' . mb_strtoupper($request->sugestao, "utf-8") . ' inserida com sucesso!']);
     }
 
     public function edit($id)
@@ -40,11 +40,11 @@ class SugestaoController extends Controller
         }
         if (Auth::id() === 1) {
             $objSugestao = SugestaoModel::findorfail($id);
-           // $objContexto = ContextoModel::orderBy('id')->get();
-           //return view('controlPanel.palavra.editar')->with(['palavra' => $objPalavra, 'contextos' =>$objContexto]);
+            // $objContexto = ContextoModel::orderBy('id')->get();
+            //return view('controlPanel.palavra.editar')->with(['palavra' => $objPalavra, 'contextos' =>$objContexto]);
             return view('controlPanel.sugestao.editar')->with('sugestao', $objSugestao);
             //['likes' => $ObjLikes, 'qtd_likes' => $ObjQTDLikes]
-        } else{
+        } else {
             return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
         }
     }
@@ -52,22 +52,22 @@ class SugestaoController extends Controller
     public function update(Request $request)
     {
         if (Auth::id() === 1) {
-        $request->validate([
-            'usuario_id' => 'required',
-            'sugestao' => 'required|max:255',
-            'tipo' => 'required|max:8',
-            'cadastrado' => 'required|max:3'
-        ]);
+            $request->validate([
+                'usuario_id' => 'required',
+                'sugestao' => 'required|max:255',
+                'tipo' => 'required|max:8',
+                'cadastrado' => 'required|max:3'
+            ]);
 
-        $objSugestao = SugestaoModel::findorfail($request->id);
-        $objSugestao->usuario_id = $request->usuario_id;
-        $objSugestao->sugestao = $request->sugestao;
-        $objSugestao->tipo = mb_strtoupper($request->tipo);
-        $objSugestao->cadastrado = mb_strtoupper($request->cadastrado);
+            $objSugestao = SugestaoModel::findorfail($request->id);
+            $objSugestao->usuario_id = $request->usuario_id;
+            $objSugestao->sugestao = $request->sugestao;
+            $objSugestao->tipo = mb_strtoupper($request->tipo);
+            $objSugestao->cadastrado = mb_strtoupper($request->cadastrado);
 
-        $objSugestao->save();
+            $objSugestao->save();
 
-        return redirect()->route('sugestao')->withInput()->withErrors(['Sugestao '.mb_strtoupper($request->sugestao, "utf-8").' editada com sucesso!']);
+            return redirect()->route('sugestao')->withInput()->withErrors(['Sugestao ' . mb_strtoupper($request->sugestao, "utf-8") . ' editada com sucesso!']);
         } else {
             return view('pInicio');
         }
@@ -75,17 +75,25 @@ class SugestaoController extends Controller
 
     public function remove($id)
     {
-        if (Auth::id() === 1) {
+//
             $objSugestao = SugestaoModel::findOrFail($id);
             $data = $objSugestao->sugestao;
-            $objSugestao->delete();
-
-            return redirect()->route('cpanel.index')->withInput()->withErrors(['Sugestão '.mb_strtoupper($data, "utf-8").' removida com sucesso!']);
-            //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
-        } else{
-            return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
+            if(Auth::id() === 1){
+                $objSugestao->delete();
+            }elseif(Auth::id() === $objSugestao->users->id){
+                $objSugestao->delete();
+            }else{
+                return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
+            }
+            if (Auth::id() === 1) {
+            return redirect()->route('cpanel.index')->withInput()->withErrors(['Sugestão ' . mb_strtoupper($data, "utf-8") . ' removida com sucesso!']);
+        } else {
+            return redirect()->route('sugestao')->withInput()->withErrors(['Sugestão ' . mb_strtoupper($data, "utf-8") . ' removida com sucesso!']);
         }
-
+            //return redirect()->action('PainelController@index')->with('success', 'Aluno Remover com sucesso.');
+   //
+    //        return redirect()->route('index')->withErrors('Você não tem permissão para concluir a ação');
+   //
     }
 
     public function search(Request $request)
@@ -102,5 +110,4 @@ class SugestaoController extends Controller
         //dd($objSugestao);
         return view('buscas.pSugestoes')->with('sugestao', $objSugestao);
     }
-
 }
